@@ -128,7 +128,7 @@ Implementa una rete feed-forward con attivazione **SwiGLU**, adottata da LLaMA i
 
 **Formula:**
 
-$$ \text{FFN}(x) = (\text{SiLU}(\text{gate\_proj}(x)) \cdot \text{up\_proj}(x)) W_{down} $$
+$$ \text{FFN}(x) = (\text{SiLU}(\mathrm{gate\_proj}(x)) \cdot \mathrm{up\_proj}(x)) W_{\mathrm{down}} $$
 
 La dimensione nascosta viene calcolata come:
 

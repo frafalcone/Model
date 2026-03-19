@@ -128,7 +128,7 @@ Implements a feed-forward network with **SwiGLU** activation, adopted by LLaMA a
 
 **Formula:**
 
-$$ \text{FFN}(x) = (\text{SiLU}(\text{gate\_proj}(x)) \cdot \text{up\_proj}(x)) W_{down} $$
+$$ \text{FFN}(x) = (\text{SiLU}(\mathrm{gate\_proj}(x)) \cdot \mathrm{up\_proj}(x)) W_{\mathrm{down}} $$
 
 The hidden dimension is computed as:
 
