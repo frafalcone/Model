@@ -20,7 +20,6 @@ gqa_configuration = {
 
 ffn_configuration = {
     "embedding": embedding,
-    "dropout_rate": dropout_rate,
     "bias": bias,
     "embedding_expansion_rate": embedding_expansion_rate
 }
@@ -41,7 +40,7 @@ model_configuration = {
     "vocabulary": vocabulary,
     "dropout_rate": dropout_rate,
     "bias": bias,
-    "layer": layers,
+    "layers": layers,
     "trf_configuration": trf_configuration,
     "rmsn_configuration": rmsn_configuration
 }

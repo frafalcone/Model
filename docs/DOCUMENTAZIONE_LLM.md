@@ -21,8 +21,11 @@
    - [Validazione](#43-validazione)
 5. [Gestione degli State e dei Checkpoint](#5-gestione-degli-state-e-dei-checkpoint)
 6. [Entry Point — main.py](#6-entry-point--mainpy)
-7. [Struttura del Progetto](#7-struttura-del-progetto)
-8. [Requisiti](#8-requisiti)
+7. [Valutazione e Benchmark](#7-valutazione-e-benchmark)
+   - [evaluation.py](#71-evaluationpy)
+   - [BENCHMARK.md](#72-benchmarkmd)
+8. [Struttura del Progetto](#8-struttura-del-progetto)
+9. [Requisiti](#9-requisiti)
 
 ---
 
@@ -323,7 +326,28 @@ Orchestratore principale del progetto. Il flusso di esecuzione è:
 
 ---
 
-## 7. Struttura del Progetto
+## 7. Valutazione e Benchmark
+
+**File:** `docs/BENCHMARK.md`
+
+Il report di benchmark confronta il modello custom con GPT-2 (117M) su sei task NLP standard: BLiMP, CoLA, LAMBADA, HellaSwag, ARC-Easy e ARC-Challenge. Il documento è bilingue (italiano / inglese) e include punteggi complessivi con delta, dettaglio per sottocategoria, analisi dei punti di forza e debolezza, e il riferimento al setup di training.
+
+**Riepilogo risultati principali:**
+
+| Benchmark | Custom | GPT-2 | Delta |
+|---|---|---|---|
+| BLiMP | 74.03% | 59.07% | **+14.96 pp** |
+| HellaSwag | 28.09% | 24.26% | +3.83 pp |
+| ARC-Easy | 30.53% | 28.77% | +1.76 pp |
+| CoLA | 27.76% | 26.22% | +1.54 pp |
+| LAMBADA | 13.62% | 17.40% | −3.78 pp |
+| ARC-Challenge | 21.74% | 28.76% | −7.02 pp |
+
+Il risultato più rilevante è la competenza grammaticale (BLiMP +14.96 pp) a parità di scala. Le sotto-prestazioni su LAMBADA e ARC-Challenge sono attribuite al volume di dati di training piuttosto che all'architettura — si veda `BENCHMARK.md` per l'analisi completa.
+
+---
+
+## 8. Struttura del Progetto
 
 ```
 project/
@@ -362,12 +386,15 @@ project/
 │   ├── model.pth                      # Modello finale (solo pesi)
 │   └── training_results.json          # Metriche finali
 │
-└── docs/                              # Documentazione e Benchmark
+└── docs/
+    ├── DOCUMENTATION_LLM.md           # Documentazione tecnica completa (inglese)
+    ├── DOCUMENTAZIONE_LLM.md          # Documentazione tecnica completa (italiano)
+    └── BENCHMARK.md                   # Risultati benchmark e analisi
 ```
 
 ---
 
-## 8. Requisiti
+## 9. Requisiti
 
 | Pacchetto | Versione minima | Utilizzo |
 |---|---|---|

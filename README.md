@@ -95,7 +95,10 @@ project/
 │   ├── model.pth                      # Modello finale (solo pesi)
 │   └── training_results.json          # Metriche finali
 │
-└── docs/                              # Documentazione e Benchmark
+└── docs/
+    ├── DOCUMENTATION_LLM.md           # Documentazione tecnica completa (inglese)
+    ├── DOCUMENTAZIONE_LLM.md          # Documentazione tecnica completa (italiano)
+    └── BENCHMARK.md                   # Risultati benchmark e analisi
 ```
 
 ### Requisiti
@@ -116,6 +119,8 @@ python src/main.py
 ```
 
 Il programma tokenizza automaticamente i dati (se i file `.bin` non esistono), avvia il training e salva il modello finale in `output/model.pth`.
+
+I risultati del benchmark del modello addestrato sono disponibili in `docs/BENCHMARK.md`.
 
 ---
 
@@ -210,7 +215,10 @@ project/
 │   ├── model.pth                      # Final model (weights only)
 │   └── training_results.json          # Final metrics
 │
-└── docs/                              # Documentation and Benchmark
+└── docs/
+    ├── DOCUMENTATION_LLM.md           # Full technical documentation (English)
+    ├── DOCUMENTAZIONE_LLM.md          # Full technical documentation (Italian)
+    └── BENCHMARK.md                   # Benchmark results and analysis
 ```
 
 ### Requirements
@@ -231,3 +239,5 @@ python src/main.py
 ```
 
 The program automatically tokenizes the data (if `.bin` files do not already exist), runs the training loop, and saves the final model to `output/model.pth`.
+
+Benchmark results for the trained model are available in `docs/BENCHMARK.md`.

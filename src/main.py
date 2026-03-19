@@ -29,12 +29,11 @@ def main_train():
         if not os.path.exists(trn_bin) or not os.path.exists(val_bin):
             pre_tokenize_data(data_configuration, tokenizer)
 
-        #training_loader = create_dataloader(trn_bin, data_configuration, shuffle=True)
-        #validation_loader = create_dataloader(val_bin, data_configuration, shuffle=False)
+        training_loader = create_dataloader(trn_bin, data_configuration, shuffle=True)
+        validation_loader = create_dataloader(val_bin, data_configuration, shuffle=False)
         
-        #train_model(model, trn_configuration, training_loader, validation_loader, device=device)
+        train_model(model, trn_configuration, training_loader, validation_loader, device=device)
         
-        load_model(model=model, filepath="output/bckpt.pth")
         save_model(model=model, filepath="output/model.pth")
 
     except Exception as e:

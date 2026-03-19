@@ -27,7 +27,7 @@ class CustomDataset(Dataset):
 
 def create_dataloader(bin_path, data_configuration, shuffle=True, drop_last=True, pin_memory=True, percentage=1.0):
     context_size = data_configuration.get("context_size", 1024)
-    batch = data_configuration.get("batch", 32)
+    batch = data_configuration.get("batch", 8)
     num_workers = data_configuration.get("num_workers", 0)
     
     dataset = CustomDataset(bin_path, context_size)

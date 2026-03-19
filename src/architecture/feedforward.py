@@ -5,7 +5,6 @@ class FeedForward(torch.nn.Module):
         super().__init__()
  
         self.embedding = ffn_configuration.get("embedding", 0)
-        self.dropout_rate = ffn_configuration.get("dropout_rate", 0)
         self.bias = ffn_configuration.get("bias", False)
  
         expansion_rate = ffn_configuration.get("embedding_expansion_rate", 0)

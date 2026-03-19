@@ -21,8 +21,11 @@
    - [Validation](#43-validation)
 5. [State and Checkpoint Management](#5-state-and-checkpoint-management)
 6. [Entry Point — main.py](#6-entry-point--mainpy)
-7. [Project Structure](#7-project-structure)
-8. [Requirements](#8-requirements)
+7. [Evaluation and Benchmarks](#7-evaluation-and-benchmarks)
+   - [evaluation.py](#71-evaluationpy)
+   - [BENCHMARK.md](#72-benchmarkmd)
+8. [Project Structure](#8-project-structure)
+9. [Requirements](#9-requirements)
 
 ---
 
@@ -323,7 +326,28 @@ Main project orchestrator. The execution flow is:
 
 ---
 
-## 7. Project Structure
+## 7. Evaluation and Benchmarks
+
+**File:** `docs/BENCHMARK.md`
+
+The benchmark report compares the custom model against GPT-2 (117M) across six standard NLP tasks: BLiMP, CoLA, LAMBADA, HellaSwag, ARC-Easy, and ARC-Challenge. The document is bilingual (Italian / English) and includes overall scores with deltas, per-subcategory breakdowns, a strengths/weaknesses analysis, and the training setup reference.
+
+**Key results summary:**
+
+| Benchmark | Custom | GPT-2 | Delta |
+|---|---|---|---|
+| BLiMP | 74.03% | 59.07% | **+14.96 pp** |
+| HellaSwag | 28.09% | 24.26% | +3.83 pp |
+| ARC-Easy | 30.53% | 28.77% | +1.76 pp |
+| CoLA | 27.76% | 26.22% | +1.54 pp |
+| LAMBADA | 13.62% | 17.40% | −3.78 pp |
+| ARC-Challenge | 21.74% | 28.76% | −7.02 pp |
+
+The custom model's grammatical competence (BLiMP +14.96 pp) is the standout result at this scale. Underperformance on LAMBADA and ARC-Challenge is attributed to training data volume rather than architecture — see `BENCHMARK.md` for the full analysis.
+
+---
+
+## 8. Project Structure
 
 ```
 project/
@@ -362,12 +386,15 @@ project/
 │   ├── model.pth                      # Final model (weights only)
 │   └── training_results.json          # Final metrics
 │
-└── docs/                              # Documentation and Benchmark
+└── docs/
+    ├── DOCUMENTATION_LLM.md           # Full technical documentation (English)
+    ├── DOCUMENTAZIONE_LLM.md          # Full technical documentation (Italian)
+    └── BENCHMARK.md                   # Benchmark results and analysis
 ```
 
 ---
 
-## 8. Requirements
+## 9. Requirements
 
 | Package | Minimum Version | Usage |
 |---|---|---|
